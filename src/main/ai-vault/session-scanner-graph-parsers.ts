@@ -228,7 +228,9 @@ function consumeMessageGraphRecordLine(state: MessageGraphParseState, line: stri
   updateTimeline(accumulator, extractString(record.timestamp))
   if (accumulator.agent === 'omp') {
     state.ompTitle = foldOmpTranscriptTitle(state.ompTitle, record)
-    if (state.ompTitle) accumulator.title = state.ompTitle.title
+    if (state.ompTitle) {
+      accumulator.title = state.ompTitle.title
+    }
   }
   if (record.type === 'session') {
     const sessionId = extractString(record.id)

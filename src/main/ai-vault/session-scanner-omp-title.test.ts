@@ -126,6 +126,6 @@ describe('OMP stored history names', () => {
     next.consumeLine(line({ type: 'title_change', title: 'New name', source: 'user' }))
     expect((await next.finalize('darwin'))?.title).toBe('New name')
     expect(previous?.title).toBe('User name')
-    expect(state.identity?.().title).toBe('User name')
+    expect(state.identity?.()?.title).toBe('User name')
   })
 })
